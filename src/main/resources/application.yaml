@@ -4,9 +4,9 @@ spring:
   application:
     name: "empresa-computadores_upb3"
   datasource:
-    url: jdbc:mysql://localhost:3306/computadores_upb
+    url: jdbc:mysql://localhost:3306/computadores-upb
     username: root
-    password: Laura06.
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

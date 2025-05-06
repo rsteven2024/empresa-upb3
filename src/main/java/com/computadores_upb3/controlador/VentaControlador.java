@@ -1,4 +1,4 @@
-package com.computadores_upb3.controlador;
+package com.computadores_upb3.Controlador;
 
 import com.computadores_upb3.modelo.entidades.Venta;
 import com.computadores_upb3.servicio.VentaServicio;

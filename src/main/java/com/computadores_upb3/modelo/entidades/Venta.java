@@ -17,9 +17,9 @@ import java.util.Date;
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long id_ventas;
     Long fk_id_empleado;
-    Long fk_id_clientes;
+    Long fk_id_cliente;
     Long fk_id_computador;
     Date fecha_venta;
     Integer cantidad;

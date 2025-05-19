@@ -1,12 +1,8 @@
 package com.computadores_upb3.modelo.entidades;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.Date;
+import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "clientes")
@@ -18,12 +14,12 @@ import java.util.Date;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_cliente;
-    String nombre;
-    String apellido;
-    String telefono;
-    String correo;
-    Date fecha_nacimiento;
-    String direccion;
+    private Long id_cliente;
+    private String nombre;
+    private String apellido;
+    private String telefono;
+    private String correo;
+    private LocalDate fecha_nacimiento;
+    private String direccion;
 
 }

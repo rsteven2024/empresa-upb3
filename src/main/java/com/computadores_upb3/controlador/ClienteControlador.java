@@ -5,10 +5,7 @@ import com.computadores_upb3.modelo.entidades.Cliente;
 import com.computadores_upb3.servicio.ClienteServicio;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.time.LocalDate;
@@ -33,5 +30,11 @@ public class ClienteControlador {
     @PostMapping("/actualizatcliente/{id_cliente}/{nombre}/{apellido}/{telefono}/{correo}/{fecha_nacimiento}/{direccion}")
     Integer actualizarCliente(@PathVariable Long id_cliente, @PathVariable String nombre, @PathVariable String apellido, @PathVariable String telefono, @PathVariable String correo, @PathVariable LocalDate fecha_nacimiento, @PathVariable String direccion){
         return clienteServicio.updateCliente(id_cliente,nombre,apellido,telefono,correo,fecha_nacimiento,direccion);
+    }
+
+    @PostMapping("/crearcliente")
+    public Integer crearCliente(@RequestBody Cliente nuevoCliente) {
+        return clienteServicio.insertarCliente(nuevoCliente.getNombre(), nuevoCliente.getApellido(), nuevoCliente.getTelefono(),
+                nuevoCliente.getCorreo(), nuevoCliente.getFecha_nacimiento(), nuevoCliente.getDireccion());
     }
 }

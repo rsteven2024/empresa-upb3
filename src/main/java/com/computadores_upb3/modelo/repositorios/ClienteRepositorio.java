@@ -37,4 +37,19 @@ public interface ClienteRepositorio extends Repository<Cliente, Long> {
             @Param("correo") String correo,
             @Param("fechaNacimiento") LocalDate fechaNacimiento,
             @Param("direccion") String direccion);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = """
+    INSERT INTO clientes (nombre, apellido, telefono, correo, fecha_nacimiento, direccion)
+    VALUES (:nombre, :apellido, :telefono, :correo, :fecha_nacimiento, :direccion)
+""", nativeQuery = true)
+    Integer insertarCliente(
+            @Param("nombre") String nombre,
+            @Param("apellido") String apellido,
+            @Param("telefono") String telefono,
+            @Param("correo") String correo,
+            @Param("fecha_nacimiento") LocalDate fecha_nacimiento,
+            @Param("direccion") String direccion);
 }

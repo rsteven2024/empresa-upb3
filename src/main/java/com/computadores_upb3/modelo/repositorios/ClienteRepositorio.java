@@ -18,15 +18,7 @@ public interface ClienteRepositorio extends Repository<Cliente, Long> {
 
 
     @Query(value = """
-    UPDATE clientes 
-    SET nombre = :nombre, 
-        apellido = :apellido, 
-        telefono = :telefono, 
-        correo = :correo, 
-        fecha_nacimiento = :fechaNacimiento, 
-        direccion = :direccion 
-    WHERE id_cliente = :id_cliente
-""", nativeQuery = true)
+UPDATE clientes SET nombre = :nombre, apellido = :apellido, telefono = :telefono, correo = :correo, fecha_nacimiento = :fechaNacimiento, direccion = :direccion WHERE id_cliente = :id_cliente""", nativeQuery = true)
     @Modifying
     @Transactional
     Integer actualizarTodosLosClientes(
@@ -42,9 +34,7 @@ public interface ClienteRepositorio extends Repository<Cliente, Long> {
     @Modifying
     @Transactional
     @Query(value = """
-    INSERT INTO clientes (nombre, apellido, telefono, correo, fecha_nacimiento, direccion)
-    VALUES (:nombre, :apellido, :telefono, :correo, :fecha_nacimiento, :direccion)
-""", nativeQuery = true)
+    INSERT INTO clientes (nombre, apellido, telefono, correo, fecha_nacimiento, direccion) VALUES (:nombre, :apellido, :telefono, :correo, :fecha_nacimiento, :direccion)""", nativeQuery = true)
     Integer insertarCliente(
             @Param("nombre") String nombre,
             @Param("apellido") String apellido,
